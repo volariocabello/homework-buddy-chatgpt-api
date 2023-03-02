@@ -9,7 +9,7 @@ function Navbar() {
 	return (
 		<nav className='flex flex-wrap items-center justify-between bg-white p-6'>
 			<div className='flex items-center flex-shrink-0 mr-6'>
-				<span className='font-semibold text-xl tracking-tight'>My Website</span>
+				<span className='font-semibold text-xl tracking-tight'>aissay</span>
 			</div>
 			<div className='block lg:hidden'>
 				<button className='flex items-center px-3 py-2 border rounded text-gray-800 border-gray-800 hover:text-gray-900 hover:border-gray-900'>
