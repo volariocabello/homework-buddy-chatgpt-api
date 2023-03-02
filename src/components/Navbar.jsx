@@ -1,6 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+import Dropdown from "./Dropdown";
 
 function Navbar() {
+	const { user, logOut } = UserAuth();
+
 	return (
 		<nav className='flex flex-wrap items-center justify-between bg-white p-6'>
 			<div className='flex items-center flex-shrink-0 mr-6'>
@@ -26,12 +31,21 @@ function Navbar() {
 					{/* Add any navigation links here */}
 				</div>
 				<div>
-					<button className='mr-4 inline-block text-sm px-4 py-2 leading-none border rounded text-gray-800 border-gray-800 hover:text-gray-900 hover:border-gray-900 mt-4 lg:mt-0'>
-						Log in
-					</button>
-					<button className='inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-indigo-500 hover:bg-indigo-600 mt-4 lg:mt-0'>
-						Register
-					</button>
+					{!user && (
+						<Link to='/login'>
+							<button className='mr-4 inline-block text-sm px-4 py-2 leading-none border rounded text-gray-800 border-gray-800 hover:text-gray-900 hover:border-gray-900 mt-4 lg:mt-0'>
+								Log in
+							</button>
+						</Link>
+					)}
+					{!user && (
+						<Link to='/register'>
+							<button className='inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-indigo-500 hover:bg-indigo-600 mt-4 lg:mt-0'>
+								Register
+							</button>
+						</Link>
+					)}
+					{user && <Dropdown />}
 				</div>
 			</div>
 		</nav>
